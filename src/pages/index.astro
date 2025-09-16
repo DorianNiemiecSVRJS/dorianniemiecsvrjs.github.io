@@ -1,14 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Projects from '../components/Projects.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import { SEO } from "astro-seo";
+import { Font } from "astro:assets";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Skills from "../components/Skills.astro";
+import Projects from "../components/Projects.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Dorian Niemiec" description="A ZSOiE student passionate about Information Technology. The creator of Ferron — a fast, memory-safe web server written in Rust. An #ActuallyAutistic person.">
-  <Header />
-  <Hero />
-  <Projects />
-  <Footer />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <Font cssVariable="--font-spline-sans" />
+    <SEO
+      title="Dorian Niemiec"
+      description="Dorian Niemiec is an IT person from Poland; a system administrator, web developer, and software developer."
+      openGraph={{
+        basic: {
+          title: "Dorian Niemiec",
+          type: "website",
+          image: `${Astro.url.origin}/opengraph.png`
+        },
+        optional: {
+          description:
+            "Dorian Niemiec is an IT person from Poland; a system administrator, web developer, and software developer."
+        }
+      }}
+      twitter={{
+        card: "summary",
+        site: "@JaDorianNiemiec",
+        title: "Dorian Niemiec",
+        image: `${Astro.url.origin}/opengraph.png`,
+        description:
+          "Dorian Niemiec is an IT person from Poland; a system administrator, web developer, and software developer."
+      }}
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header />
+    <div class="grow">
+      <Hero />
+      <Skills />
+      <Projects />
+    </div>
+    <Footer />
+  </body>
+</html>

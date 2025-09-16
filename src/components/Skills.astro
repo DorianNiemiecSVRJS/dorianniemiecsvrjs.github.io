@@ -1,0 +1,53 @@
+---
+import {
+  faDebian,
+  faDocker,
+  faNodeJs,
+  faPhp,
+  faReact,
+  faRust
+} from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import Skill from "./Skill.astro";
+import FerronIcon from "./icons/FerronIcon.astro";
+import MySqlIcon from "./icons/MySqlIcon.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import TailwindCssIcon from "./icons/TailwindCssIcon.astro";
+import NextJsIcon from "./icons/NextJsIcon.astro";
+---
+
+<section id="skills" class="relative bg-primary text-primary-foreground skewed">
+  <div class="container py-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">
+      My technical skills
+    </h2>
+    <h3 class="text-xl md:text-2xl font-bold text-center md:text-start my-4">
+      GNU/Linux system administration
+    </h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+      <Skill faIcon={faDebian} name="Debian GNU/Linux (and derivatives)" />
+      <Skill faIcon={faDocker} name="Docker (including Docker Compose)" />
+      <Skill icon={FerronIcon} name="Ferron web server" />
+      <Skill icon={MySqlIcon} name="MySQL/MariaDB" />
+    </ul>
+    <h3 class="text-xl md:text-2xl font-bold text-center md:text-start my-4">
+      Web development
+    </h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+      <Skill faIcon={faGlobe} name="Fundamentals (HTML, CSS, JavaScript)" />
+      <Skill icon={AstroIcon} name="Astro" />
+      <Skill faIcon={faReact} name="React" />
+      <Skill icon={TailwindCssIcon} name="Tailwind CSS" />
+      <Skill icon={NextJsIcon} name="Next.js" />
+      <Skill faIcon={faNodeJs} name="Node.js" />
+      <Skill faIcon={faPhp} name="PHP" />
+    </ul>
+    <h3 class="text-xl md:text-2xl font-bold text-center md:text-start my-4">
+      Software development
+    </h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+      <Skill faIcon={faRust} name="Rust" />
+    </ul>
+    <p class="mt-6 font-bold text-xl md:text-2xl text-center">And more...</p>
+  </div>
+</section>

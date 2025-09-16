@@ -1,19 +1,30 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+// @ts-check
+import { defineConfig, fontProviders } from "astro/config";
 
+import tailwindcss from "@tailwindcss/vite";
+
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-  // ...
-  integrations: [
-    tailwind({
-      // Example: Disable injecting a basic `base.css` import on every page.
-      // Useful if you need to define and/or import your own custom `base.css`.
-      applyBaseStyles: false,
-    }),
-  ],
+  site: "https://dorianniemiecsvrjs.github.io",
+
   vite: {
-    ssr: {
-      noExternal: ['@fontsource/geist-sans'],
-    }
+    plugins: [tailwindcss()],
   },
-  site: 'https://dorianniemiecsvrjs.github.io'
+
+  integrations: [sitemap()],
+
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        name: "Spline Sans",
+        weights: [400, 500, 600, 700],
+        cssVariable: "--font-spline-sans",
+        fallbacks: ["Tahoma", "Arial", "Helvetica", "sans-serif"],
+        subsets: ["latin", "latin-ext"],
+      },
+    ],
+  },
 });
