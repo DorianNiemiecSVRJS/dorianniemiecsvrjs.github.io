@@ -15,10 +15,31 @@ import { Image } from "astro:assets";
     <p class="text-sm text-muted-foreground my-1">
       {Astro.props.description}
     </p>
-    <p class="text-sm my-1"><strong>Year: </strong>{Astro.props.year}</p>
     <p class="text-sm my-1">
-      <strong>Tech stack: </strong>{Astro.props.techStack.join(", ")}
+      {
+        Astro.props.year ? (
+          <>
+            <strong>Year: </strong>
+            {Astro.props.year}
+          </>
+        ) : (
+          <>
+            <strong>Years: </strong>
+            {Astro.props.yearBegin}-{Astro.props.yearEnd || "current"}
+          </>
+        )
+      }
     </p>
+    {
+      Astro.props.techStack ? (
+        <p class="text-sm my-1">
+          <strong>Tech stack: </strong>
+          {Astro.props.techStack.join(", ")}
+        </p>
+      ) : (
+        ""
+      )
+    }
   </div>
   <div class="flex flex-col p-4 pt-0 justify-center gap-2">
     {
