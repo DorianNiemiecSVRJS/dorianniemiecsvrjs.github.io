@@ -21,15 +21,22 @@ import { Image } from "astro:assets";
     </p>
   </div>
   <div class="flex flex-col p-4 pt-0 justify-center gap-2">
-    <a
-      href={Astro.props.website}
-      class="bg-primary text-primary-foreground hover:bg-primary/80 transition-colors font-semibold rounded-md px-3 py-1.5 inline-block text-center text-sm"
-      >Visit the website</a
-    >{
+    {
+      Astro.props.website ? (
+        <a
+          href={Astro.props.website}
+          class="bg-primary text-primary-foreground hover:bg-primary/80 transition-colors font-semibold rounded-md px-3 py-1.5 inline-block text-center text-sm"
+        >
+          Visit the website
+        </a>
+      ) : (
+        ""
+      )
+    }{
       Astro.props.git ? (
         <a
           href={Astro.props.git}
-          class="bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-semibold rounded-md px-3 py-1.5 inline-block text-center text-sm"
+          class={`${Astro.props.website ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"} hover:bg-secondary/80 transition-colors font-semibold rounded-md px-3 py-1.5 inline-block text-center text-sm`}
         >
           View the Git repository
         </a>
