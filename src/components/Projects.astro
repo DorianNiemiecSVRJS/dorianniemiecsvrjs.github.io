@@ -3,6 +3,8 @@ import Project from "./Project.astro";
 import FerronImage from "../assets/portfolio/ferron.png";
 import ZsoieImage from "../assets/portfolio/zsoie.png";
 import MernMailImage from "../assets/portfolio/mernmail.png";
+import SvrjsImage from "../assets/portfolio/svrjs.png";
+import AdmSnippetImage from "../assets/portfolio/admsnippet.png";
 ---
 
 <section id="projects" class="container py-6">
@@ -41,6 +43,24 @@ import MernMailImage from "../assets/portfolio/mernmail.png";
       ]}
       website="https://www.mernmail.org"
       git="https://github.com/mernmail/mernmail"
+    />
+    <Project
+      image={SvrjsImage}
+      name="SVR.JS (discontinued)"
+      description="Was a web server running on Node.js. Now discontinued in favor of Ferron."
+      yearBegin={2018}
+      yearEnd={2025}
+      techStack={["Node.js"]}
+      git="https://github.com/svr-js/svrjs"
+    />
+    <Project
+      image={AdmSnippetImage}
+      name="AdmSnippet (discontinued)"
+      description="Was a database of user-submitted server administration scripts and configuration files, which allowed server administrators to easily find scripts for their server administration needs."
+      yearBegin={2024}
+      yearEnd={2025}
+      techStack={["HTML", "CSS", "JavaScript", "PHP"]}
+      git="https://github.com/DorianNiemiecSVRJS/admsnippet"
     />
   </div>
 </section>
